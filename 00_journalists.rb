@@ -2,53 +2,70 @@ journalist = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzeau"
 
 
 def length(array)
-puts "Combien y a-t-il de noms dans ce tableau ?"
-puts array.length
+puts "il y #{array.length} noms dans cette liste"
 end
 
-
 def shortest_handle(array)
-    puts "Quel est le plus petit nom du tableau"
-    puts array.min{|a,b| a.size <=> b.size }
+  puts "#{array.min{|a,b| a.size <=> b.size }} est le plus petit mot de la liste"
 end
 
 def alphabetic(array)
-    puts "Trie les noms du tableau par ordre alphabétique"
-    puts array.sort_by { |change| change }
+   puts array.sort_by { |change| change }
 end
 
 
 def five_character(array)
-    puts "Combien y-a-t'il de mots contenant 5 caractères ?"
-    puts array.count { |l| l.size == 6 }
+   puts "il y a #{array.count { |l| l.size == 6 }} mots de 5 lettres"
 end
 
 
 def sort_length(array)
-    puts "Trie la liste des noms par taille du plus petit au plus grand"
-    puts array.sort_by{|a| a.length}
+   puts array.sort_by{|a| a.length}
 end
 
 
-
 def e_penser(array)
-    puts "Quelle est la position dans l'array de la personne @epenser ?"
-    puts array.index('@epenser')
+   puts " @epenser est en #{array.index('@epenser')}ème position dans la liste"
 end
 
 
 def count_upcase(array)
-    if array.length { |l| l.size == 2 }
-puts array.count { |l| l.upcase} 
+puts array.select{ |liste| liste [1] =~ /[[:upper:]]/} 
+end
 
-    puts "nothing"
+14.times do
+puts "
+Choisis un numéro entre 1 et 7 pour découvrir mon travail :)
+
+1. Combien y a-t-il de noms dans cette liste?
+2. Quel est le plus petit nom de la liste ?
+3. Trie les noms du tableau par ordre alphabétique
+4. Combien y-a-t'il de mots contenant 5 caractères ?
+5. Trie la liste des noms par taille du plus petit au plus grand
+6. Quelle est la position dans l'array de la personne @epenser ?
+7. la liste des noms commençant par une majuscule "
+
+
+number = gets.chomp.to_i
+
+if number == 1
+    puts length(journalist)
+elsif  number == 2
+    puts shortest_handle(journalist)
+elsif number == 3
+    puts alphabetic(journalist)
+elsif
+    number == 4
+    puts five_character(journalist)
+
+elsif number == 5
+    puts sort_length(journalist)
+elsif number == 6
+    puts e_penser(journalist)
+elsif number == 7
+    puts count_upcase(journalist)
 end
 
 end
 
 
-
-#journalist.count { |l| l.size == 6 }
-#puts "il y a #{n} journalistes avec #{y} caratères
-
-puts journalist.count{ |liste| liste [1] =~ /[[:upper:]]/} 
